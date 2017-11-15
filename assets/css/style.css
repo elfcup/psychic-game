@@ -1,0 +1,21 @@
+.header {
+	box-sizing: border-box;
+	border: 1px solid grey;
+	padding: 20px;
+	}
+
+.container {
+	border: solid grey; 
+	}
+
+h1 {
+	font-size: 80px;
+	color: blue;
+	text-align: center;
+}
+
+div {
+	font-size: 20px;
+	color: purple;
+	text-align: center;
+}
