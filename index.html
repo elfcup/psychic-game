@@ -11,17 +11,65 @@
 	</header>
 	<div class="container">
 		<br>
-		<div class="guessLetter">Guess what letter I am thinking of..</div>
+		<div id="guessLetter">Guess what letter I am thinking of..</div>
 		<br>
-		<div class="wins">Wins: </div>
+		<div id="wins">Wins: </div>
 		<br>
-		<div class="losses">Losses: </div>
+		<div id="losses">Losses: </div>
 		<br>
-		<div class="guessLeft">Guesses Left: </div>
+		<div id="guessLeft">Guesses Left: </div>
 		<br>
-		<div class="soFar">Your Guesses so far: </div>
+		<div id="soFar">Your Guesses so far: </div>
 		<br>
 	</div><!--Close container-->
-	<!--put js link here-->
+	<!--put js link here- or add the js in the script section-->
+	
+	<script type="text/javascript">
+		
+
+var wins = 0;
+var losses = 0
+var guesses = 10;
+
+var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l',
+    'm','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+var randomNumber = Math.floor(Math.random() * alphabet.length);
+    randomNumber = Math.floor(Math.random() * 26); //a random # between 0-25
+    console.log('ran num: ', randomNumber);
+var danisComputerChoice = alphabet[randomNumber];
+    console.log('should be a letter ',danisComputerChoice);
+
+document.onkeypress = function(event) {
+	console.log('a key was pushed');
+    console.log('event ', event);
+    var userGuess = event.key;
+    console.log('user guess from event.key', userGuess);
+ 
+    if(userGuess === danisComputerChoice){
+        wins++;
+        //you guessed the write letter, you Win!
+        //have a button that resets all of the variables, and puts guesses back to 9. Or
+        //cause a page refresh so that it starts over. 
+    	}else{
+    	guesses--;
+
+      }
+
+
+ 
+     if(guesses === 0){
+         losses++
+     }
+ 
+     document.getElementById('wins').innerHTML = "Wins: " + wins;
+     document.getElementById('losses').innerHTML = "losses: " + losses;
+     document.getElementById('guessLeft').innerHTML = "Guesses left: " + guesses;
+}
+
+
+	</script>
+
+
 </body>
 </html>
